@@ -32,11 +32,11 @@ const Registration = () => {
 
   return (
     <>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen">
         <div className="hero-content w-full">
           <div className="text-center lg:text-left"></div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-10">
-            <h1 className="text-2xl font-bold text-center">Register now!</h1>
+            <h1 className="text-2xl font-bold text-center">Please, Register here</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">

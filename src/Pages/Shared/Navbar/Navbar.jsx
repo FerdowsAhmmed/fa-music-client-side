@@ -11,7 +11,7 @@ const Navbar = () => {
 }
   
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-300">
     <div className="navbar-start">
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -52,13 +52,13 @@ const Navbar = () => {
           
       </ul>
     </div>
-    <div className="navbar-end">
+    <div className="navbar-end pr-10">
     {
             user ? <>
             <img src={user.photoURL} alt="" className="w-[50px] rounded-full"/>
                 <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
             </> : <>
-                <li><Link to="/login">Login</Link></li>
+                <Link to="/login">Login</Link>
             </>
         }
     </div>

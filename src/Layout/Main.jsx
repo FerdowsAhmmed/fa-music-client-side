@@ -5,7 +5,7 @@ import  { Toaster } from 'react-hot-toast';
 
 const Main = () => {
     return (
-        <div className="min-h-screen bg-base-200 px-2 lg:px-2">
+        <div className="min-h-screen  lg:px-2">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
