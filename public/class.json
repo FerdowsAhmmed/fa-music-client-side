@@ -1,0 +1,73 @@
+[
+    {
+      "className": "Piano",
+      "enrolledStudents": 20,
+      "instructorName": "Md. Rahman",
+      "imageUrl": "https://i.ibb.co/FJFPBVd/piano.jpg"
+    },
+    {
+      "className": "Guitar",
+      "enrolledStudents": 15,
+      "instructorName": "Farida Begum",
+      "imageUrl": "https://i.ibb.co/jRt0YcN/guitar.jpg"
+    },
+    {
+      "className": "Violin",
+      "enrolledStudents": 10,
+      "instructorName": "Mohammad Khan",
+      "imageUrl": "https://i.ibb.co/K59CZvK/violin.jpg"
+    },
+    {
+      "className": "Drums",
+      "enrolledStudents": 12,
+      "instructorName": "Ayesha Islam",
+      "imageUrl": "https://i.ibb.co/ZdNJNNn/drums.jpg"
+    },
+    {
+      "className": "Flute",
+      "enrolledStudents": 8,
+      "instructorName": "Abdul Haque",
+      "imageUrl": "https://i.ibb.co/cxNDs1m/flute.jpg"
+    },
+    {
+      "className": "Saxophone",
+      "enrolledStudents": 6,
+      "instructorName": "Sultana Akhter",
+      "imageUrl": "https://i.ibb.co/MgSXb2D/Saxophone.jpg"
+    },
+    {
+      "className": "Tabla",
+      "enrolledStudents": 10,
+      "instructorName": "Kamal Hossain",
+      "imageUrl": "https://i.ibb.co/C1fZzq8/tabla.jpg"
+    },
+    {
+      "className": "Harmonium",
+      "enrolledStudents": 5,
+      "instructorName": "Nazrul Islam",
+      "imageUrl": "https://i.ibb.co/YTV6c1g/harmonium.jpg"
+    },
+    {
+      "className": "Trumpet",
+      "enrolledStudents": 7,
+      "instructorName": "Nasrin Akter",
+      "imageUrl": "https://i.ibb.co/Dwspz2B/trumpet.jpg"
+    },
+    {
+      "className": "Cello",
+      "enrolledStudents": 4,
+      "instructorName": "Ali Khan",
+      "imageUrl": "https://i.ibb.co/JKRn6HL/Cello.jpg"
+    }
+  ]
+  
+
+  
+
+
+
+
+
+
+
+

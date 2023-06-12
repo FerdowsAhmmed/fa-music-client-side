@@ -49,9 +49,9 @@ const Login = () => {
 
   return (
     <>
-      <div className="hero min-h-screen">
+      <div className="hero mt-40 mb-10">
         <div className="hero-content w-full">
-          <div className="card w-96 max-w-sm shadow-2xl bg-base-300">
+          <div className="card w-96 max-w-sm shadow-2xl bg-base-100">
             <h1 className="text-center text-2xl font-bold pt-4">Login here</h1>
             <form onSubmit={handleLogin} className="card-body">
               <div className="form-control mb-4">
@@ -90,11 +90,11 @@ const Login = () => {
                 Register here
               </Link>{" "}
             </p>
-            <div className="flex justify-center gap-4">
-              <button className="btn btn-primary" onClick={handleGoogleLogin}>
+            <div className="flex flex-col justify-center">
+              <button className="btn  mb-2 w-3/4 mx-auto hover:bg-orange-700" onClick={handleGoogleLogin}>
                 Login with Google
               </button>
-              <button className="btn btn-primary" onClick={handleFacebookLogin}>
+              <button className="btn   w-3/4 mx-auto mb-4 hover:bg-orange-700" onClick={handleFacebookLogin}>
                 Login with Facebook
               </button>
             </div>
