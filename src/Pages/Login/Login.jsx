@@ -1,72 +1,76 @@
-import { useState } from 'react';
-import { Link,  useNavigate } from 'react-router-dom';
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle login logic here
-    // Redirect the user to the desired page after successful login
-    navigate('/dashboard');
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("Login successful!");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
-    <section className="min-h-screen">
-      <div className="max-w-md mx-auto my-28 p-4 border border-gray-300 rounded-lg">
-      <h2 className="text-2xl font-bold mb-4">Login Page</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="email" className="text-lg font-semibold">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full p-2 border border-gray-300 rounded mt-1"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="password" className="text-lg font-semibold">
-            Password
-          </label>
-          <div className="relative">
-            <input
-              type={showPassword ? 'text' : 'password'}
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full p-2 border border-gray-300 rounded mt-1"
-            />
-            <span
-              className="absolute top-3 right-3 cursor-pointer text-blue-500"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? 'Hide' : 'Show'}
-            </span>
+    <>
+      <div className="hero min-h-screen">
+        <div className="hero-content w-full">
+          <div className="card w-96 max-w-sm shadow-2xl bg-base-100">
+            <form onSubmit={handleLogin} className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="email"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control mt-6">
+                <input
+                  className="btn btn-primary"
+                  type="submit"
+                  value="Login"
+                />
+              </div>
+            </form>
+            <p className="text-center pb-4">
+              New Here? Please,{" "}
+              <Link to="/registration" className="text-primary">
+                Register here
+              </Link>{" "}
+            </p>
           </div>
         </div>
-        <div>
-          <button
-            type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-          >
-            Login
-          </button>
-        </div>
-      </form>
-      <div className="mt-4">
-        Do not have an account? <Link to="/registration"><span className='text-primary'>Click to Register</span></Link>
       </div>
-    </div>
-    </section>
+    </>
   );
 };
 
