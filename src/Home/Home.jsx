@@ -5,7 +5,7 @@ import Slider from "./Slider";
 
 const Home = () => {
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen ">
             <Slider></Slider>
             <PopularClass></PopularClass>
             <PopularInstructors></PopularInstructors>

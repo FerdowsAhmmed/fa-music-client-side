@@ -9,7 +9,7 @@ const Instructors = () => {
 
   const fetchInstructors = async () => {
     try {
-      const response = await fetch("class.json");
+      const response = await fetch("https://fa-music-center-server.vercel.app/classes");
       const data = await response.json();
 
       setInstructors(data);
@@ -19,7 +19,7 @@ const Instructors = () => {
   };
 
   return (
-    <div className="mb-10">
+    <div>
       <h1 className="text-center text-4xl font-bold text-slate-700 mb-10 md:mt-32">
         ------All Instructors------
       </h1>
@@ -37,8 +37,6 @@ const Instructors = () => {
               </h2>
               <p>E-mail: {instructor.instructorEmail}</p>
               <p>Address: {instructor.instructorAddress}</p>
-              <p>Instrument: {instructor.className}</p>
-              <p>Enrolled Students: {instructor.enrolledStudents}</p>
             </div>
           </div>
         ))}

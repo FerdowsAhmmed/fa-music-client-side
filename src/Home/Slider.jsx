@@ -1,7 +1,7 @@
 const Slider = () => {
     return (
       <section>
-        <div className="carousel w-full mt-24">
+        <div className="carousel w-full">
           <div id="item1" className="carousel-item w-full">
             <img
               src="https://fox40.com/wp-content/uploads/sites/13/2022/03/000_best-piano-mat-78056c-2.jpg?w=1280g"
