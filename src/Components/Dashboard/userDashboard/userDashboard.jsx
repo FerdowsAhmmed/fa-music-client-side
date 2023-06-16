@@ -23,22 +23,10 @@ const Dashboard = () => {
     };
   }, []);
 
-  useEffect(() => {
-    fetchClasses();
-  }, []);
 
-  const fetchClasses = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/classes");
-      const data = await response.json();
-      data;
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex min-h-screen overflow-hidden">
       {isSidebarOpen && (
         <div className="bg-gray-500 text-white w-64">
           <div className="flex items-center justify-center h-20">
