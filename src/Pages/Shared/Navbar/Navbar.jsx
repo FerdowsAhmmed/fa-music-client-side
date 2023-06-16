@@ -50,7 +50,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link className="py-2" to="/dashboard">
+              <Link className="py-2" to="/instructorDashboard">
                 Dashboard
               </Link>
             </li>
@@ -79,7 +79,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link className="py-2" to="/dashboard">
+            <Link className="py-2" to="/instructorDashboard">
               Dashboard
             </Link>
           </li>

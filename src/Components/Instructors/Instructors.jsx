@@ -9,7 +9,7 @@ const Instructors = () => {
 
   const fetchInstructors = async () => {
     try {
-      const response = await fetch("https://fa-music-center-server.vercel.app/classes");
+      const response = await fetch("http://localhost:5000/classes");
       const data = await response.json();
 
       setInstructors(data);

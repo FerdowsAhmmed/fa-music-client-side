@@ -1,20 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Classes = () => {
-    const navigate=useNavigate();
-    const {user}=useContext(AuthContext);
-    console.log(user);
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+  // console.log(user);
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    fetchInstructors();
+    fetchClasses();
   }, []);
 
-  const fetchInstructors = async () => {
+  const fetchClasses = async () => {
     try {
-      const response = await fetch("https://fa-music-center-server.vercel.app/classes");
+      const response = await fetch("http://localhost:5000/classes");
       const data = await response.json();
 
       setClasses(data);
@@ -23,12 +24,33 @@ const Classes = () => {
     }
   };
 
-  const handleSelectClass = () => {
+  const handleSelectClass = async (classId) => {
     if (!user) {
-        navigate('/login');
+      navigate("/login");
+      console.log("User not logged in");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/selectedClasses", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ classId }),
+      });
+
+      if (!response.ok) {
+        console.log("Failed to select class");
+        return;
+      }
+      toast.success("Class selected!");
       console.log("Class selected");
-    } 
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <div>
       <h1 className="text-center text-4xl font-bold text-slate-700 mb-10 md:mt-32">
@@ -36,9 +58,12 @@ const Classes = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {classes.map((classItem) => (
-          <div key={classItem.className} className={`border bg-orange-300 ${
-            classItem.availableSeats === 0 ? "bg-red-600" : ""
-          }`}>
+          <div
+            key={classItem._id}
+            className={`border bg-orange-300 ${
+              classItem.availableSeats === 0 ? "bg-red-600" : ""
+            }`}
+          >
             <img
               src={classItem.imageUrl}
               alt={classItem.className}
@@ -52,7 +77,13 @@ const Classes = () => {
               <p>Available seats: {classItem.availableSeats}</p>
               <p>Price: {classItem.price}</p>
             </div>
-            <button onClick={handleSelectClass} className="btn btn-sm w-full btn-primary mt-4 mb-4" disabled={classItem.availableSeats === 0}>Select</button>
+            <button
+              onClick={() => handleSelectClass(classItem._id)}
+              className="btn btn-sm w-full btn-primary mt-4 mb-4"
+              disabled={classItem.availableSeats === 0}
+            >
+              Select
+            </button>
           </div>
         ))}
       </div>
