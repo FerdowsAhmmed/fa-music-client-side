@@ -5,7 +5,6 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 
 const CheckoutForm = ({ myClasses, price }) => {
   const stripe = useStripe();
-  console.log(stripe);
   const elements = useElements();
   const { user } = useContext(AuthContext);
   const [cardError, setCardError] = useState('');

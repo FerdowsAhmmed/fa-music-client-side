@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
   const { signIn, signInWithGoogle, signInWithFacebook } = useContext(AuthContext);
@@ -9,42 +10,44 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const handleLogin = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(email, password);
-    signIn(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        toast.success("Login successful!");
-        navigate(from, { replace: true });
-      })
-      .catch((error) => console.log(error));
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const handleLogin = async (data) => {
+    try {
+      const { email, password } = data;
+      console.log(email, password);
+      const result = await signIn(email, password);
+      const user = result.user;
+      console.log(user);
+      toast.success("Login successful!");
+      navigate(from, { replace: true });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleGoogleLogin = () => {
-    signInWithGoogle()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        toast.success("Login successful!");
-        navigate(from, { replace: true });
-      })
-      .catch((error) => console.log(error));
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithGoogle();
+      const user = result.user;
+      console.log(user);
+      toast.success("Login successful!");
+      navigate(from, { replace: true });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleFacebookLogin = () => {
-    signInWithFacebook()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        toast.success("Login successful!");
-        navigate(from, { replace: true });
-      })
-      .catch((error) => console.log(error));
+  const handleFacebookLogin = async () => {
+    try {
+      const result = await signInWithFacebook();
+      const user = result.user;
+      console.log(user);
+      toast.success("Login successful!");
+      navigate(from, { replace: true });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -53,7 +56,7 @@ const Login = () => {
         <div className="hero-content w-full">
           <div className="card w-96 max-w-sm shadow-2xl bg-base-100">
             <h1 className="text-center text-2xl font-bold pt-4">Login here</h1>
-            <form onSubmit={handleLogin} className="card-body">
+            <form onSubmit={handleSubmit(handleLogin)} className="card-body">
               <div className="form-control mb-4">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -62,8 +65,10 @@ const Login = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  className="input input-bordered"
+                  className={`input input-bordered ${errors.email ? "input-error" : ""}`}
+                  {...register("email", { required: "Email is required" })}
                 />
+                {errors.email && <span className="text-error">{errors.email.message}</span>}
               </div>
               <div className="form-control mb-6">
                 <label className="label">
@@ -73,8 +78,10 @@ const Login = () => {
                   type="password"
                   name="password"
                   placeholder="Password"
-                  className="input input-bordered"
+                  className={`input input-bordered ${errors.password ? "input-error" : ""}`}
+                  {...register("password", { required: "Password is required" })}
                 />
+                {errors.password && <span className="text-error">{errors.password.message}</span>}
               </div>
               <div className="form-control">
                 <input
