@@ -15,7 +15,7 @@ const Classes = () => {
 
   const fetchClasses = async () => {
     try {
-      const response = await fetch("http://localhost:5000/classes");
+      const response = await fetch("https://fa-music-center-server.vercel.appclasses");
       const data = await response.json();
 
       setClasses(data);
@@ -32,7 +32,7 @@ const Classes = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/selectedClasses", {
+      const response = await fetch("https://fa-music-center-server.vercel.appselectedClasses", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

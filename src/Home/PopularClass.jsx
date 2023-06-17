@@ -9,7 +9,7 @@ const PopularClasses = () => {
 
   const fetchClassData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/classes");
+      const response = await fetch("https://fa-music-center-server.vercel.appclasses");
       const data = await response.json();
       const sortedClasses = data.sort(
         (a, b) => b.enrolledStudents - a.enrolledStudents

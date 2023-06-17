@@ -25,7 +25,7 @@ const AddAClass = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/classes", formData);
+      const response = await axios.post("https://fa-music-center-server.vercel.appclasses", formData);
       console.log("Data added successfully:", response.data);
       toast.success("Class added successfully!");
       // Clear form fields after successful submission

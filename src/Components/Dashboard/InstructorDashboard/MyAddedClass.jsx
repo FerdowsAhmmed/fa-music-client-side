@@ -10,7 +10,7 @@ const MyAddedClass = () => {
   useEffect(() => {
     const fetchClasses = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/classes/${user.email}`);
+        const response = await axios.get(`https://fa-music-center-server.vercel.appclasses/${user.email}`);
         setClasses(response.data);
       } catch (error) {
         console.log(error);
@@ -69,7 +69,7 @@ export default MyAddedClass;
 //   useEffect(() => {
 //     const fetchClasses = async () => {
 //       try {
-//         const response = await axios.get("http://localhost:5000/classes/farida.begum@gmail.com");
+//         const response = await axios.get("https://fa-music-center-server.vercel.appclasses/farida.begum@gmail.com");
 //         setClasses(response.data);
 //       } catch (error) {
 //         console.log(error);
@@ -81,7 +81,7 @@ export default MyAddedClass;
 
 //   const handleUpdate = async (classId, feedback) => {
 //     try {
-//       const response = await axios.put(`http://localhost:5000/classes/${classId}`, {
+//       const response = await axios.put(`https://fa-music-center-server.vercel.appclasses/${classId}`, {
 //         feedback: feedback
 //       });
 //       console.log(response.data); // Optional: Handle success message
@@ -93,7 +93,7 @@ export default MyAddedClass;
 
 //   const handleDelete = async (classId) => {
 //     try {
-//       const response = await axios.delete(`http://localhost:5000/classes/${classId}`);
+//       const response = await axios.delete(`https://fa-music-center-server.vercel.appclasses/${classId}`);
 //       console.log(response.data); // Optional: Handle success message
 //       // Update the classes state or fetch classes again
 //     } catch (error) {
