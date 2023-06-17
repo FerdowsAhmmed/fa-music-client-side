@@ -28,6 +28,6 @@ FA Music Center is a web application designed to provide a platform for music en
 - React Toast: A library for displaying toast notifications in React applications.
 
 ## Live Site
-You can access the live version of the FA Music Center web application by following this link: [FA Music Center Live Site](https://fa-music-center.web.app/)
+You can access the live version of the FA Music Center web application by following this link: [FA Music Center Live Site](https://fa-music-center.firebaseapp.com/)
 
 We hope you enjoy your experience on FA Music Center and embark on a fulfilling musical journey. Happy exploring and happy music-making!
