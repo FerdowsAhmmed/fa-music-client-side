@@ -15,7 +15,7 @@ const Payment = () => {
 
   const fetchClasses = async () => {
     try {
-      const response = await fetch("https://fa-music-center-server.vercel.app/selectedClasses");
+      const response = await fetch("https://fa-music-center-server-b9mgm5ogn-ferdowsahmmed.vercel.app/selectedClasses");
       const data = await response.json();
       console.log(data);
 

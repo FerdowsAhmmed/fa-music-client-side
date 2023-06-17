@@ -10,7 +10,7 @@ const MyAddedClass = () => {
   useEffect(() => {
     const fetchClasses = async () => {
       try {
-        const response = await axios.get(`https://fa-music-center-server.vercel.appclasses/${user.email}`);
+        const response = await axios.get(`https://fa-music-center-server-b9mgm5ogn-ferdowsahmmed.vercel.app/classes/${user.email}`);
         setClasses(response.data);
       } catch (error) {
         console.log(error);

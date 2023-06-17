@@ -10,7 +10,7 @@ const MyClasses = () => {
 
   const fetchClasses = async () => {
     try {
-      const response = await fetch("https://fa-music-center-server.vercel.appselectedClasses");
+      const response = await fetch("https://fa-music-center-server-b9mgm5ogn-ferdowsahmmed.vercel.app/Classes");
       const data = await response.json();
       
 

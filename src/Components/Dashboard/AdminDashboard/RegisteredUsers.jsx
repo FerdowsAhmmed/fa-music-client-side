@@ -8,7 +8,7 @@ const RegisteredStudents = () => {
   
     const fetchClasses = async () => {
       try {
-        const response = await fetch("https://fa-music-center-server.vercel.app/classes");
+        const response = await fetch("https://fa-music-center-server-b9mgm5ogn-ferdowsahmmed.vercel.app/classes");
         const data = await response.json();
         setClasses(data);
       } catch (error) {
