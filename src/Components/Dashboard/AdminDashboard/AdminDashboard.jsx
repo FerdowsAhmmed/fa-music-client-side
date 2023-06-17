@@ -3,6 +3,7 @@ import ManageUsers from "./ManageUsers";
 import { Link } from "react-router-dom";
 
 
+
 const AdminDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
  
@@ -34,8 +35,8 @@ const AdminDashboard = () => {
           </div>
           <nav className="bg-orange-500 py-10">
             <ul className="pl-10 pr-10">
-              <li>Manage Classes</li>
-              <li>Manage Users</li>
+            <li>Manage Classes</li>
+           <li>Manage Users</li>
               <div className="divider"></div>
               <Link to="/">
                 {" "}

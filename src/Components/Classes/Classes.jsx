@@ -32,7 +32,7 @@ const Classes = () => {
     }
 
     try {
-      const response = await fetch("https://fa-music-center-server.vercel.app/selectedClasses", {
+      const response = await fetch("http://localhost:5000/selectedClasses", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

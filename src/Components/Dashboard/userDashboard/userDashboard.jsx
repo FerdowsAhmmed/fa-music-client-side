@@ -23,27 +23,27 @@ const Dashboard = () => {
     };
   }, []);
 
-
-
   return (
     <div className="flex min-h-screen overflow-hidden">
       {isSidebarOpen && (
         <div className="bg-slate-800 w-64">
           <div className="flex items-center justify-center h-20">
-            <h1 className="bg-indigo-800 text-white py-2 px-10 text-center w-full">User Dashboard</h1>
+            <h1 className="bg-indigo-800 text-white py-2 px-10 text-center w-full">
+              User Dashboard
+            </h1>
           </div>
           <nav className="bg-orange-900 text-white py-32">
             <ul className="pl-10 pr-10">
-              <Link to="/myPayment">
-                <li>My Payment</li>
+              <Link to="/myPayment" className="flex items-center gap-2">
+                <li> My Payment</li>
               </Link>
               <br />
-              <Link to="/paymentHistory">
+              <Link to="/paymentHistory" className="flex items-center gap-2">
                 <li>Payment History</li>
               </Link>
 
               <div className="divider"></div>
-              <Link to="/">
+              <Link to="/" className="flex items-center gap-2">
                 {" "}
                 <li>Home</li>
               </Link>
