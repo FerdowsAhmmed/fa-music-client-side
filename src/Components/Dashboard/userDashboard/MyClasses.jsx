@@ -1,31 +1,35 @@
 import { useEffect, useState } from "react";
 
 const MyClasses = () => {
-  const [myAllClasses, setMyClasses] = useState([]);
+  const [myAllClasses, setMyAllClasses] = useState([]);
   const total = myAllClasses.reduce((sum, item) => parseFloat(item.price) + sum, 0);
   
   useEffect(() => {
     fetchClasses();
-  }, []);
+  }, [myAllClasses]);
 
   const fetchClasses = async () => {
     try {
       const response = await fetch("http://localhost:5000/selectedClasses");
       const data = await response.json();
+      
 
-      setMyClasses(data);
+      setMyAllClasses(data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  // Rest of the component code
+  
 
   return (
     <section className="">
       <div>
-        <h1 className="text-center my-10">Total Class Selected: ($0{myAllClasses.length})</h1>
-        <h1 className="text-center my-10">Total Price: {total}</h1>
+        <h1 className="text-center text-3xl font-bold mt-10">Total Class Selected: 0{myAllClasses.length}</h1>
+        <div className="bg-indigo-800 flex flex-col w-60 mx-auto border p-4 m-4 gap-4 text-white rounded-lg">
+        <h1 className="text-center">Total Price:Tk. {total}</h1>
+        <button className="btn btn-xs">Pay Now</button>
+        </div>
 
         <main className="flex-grow p-4 bg-gray-100">
           <div className="overflow-x-auto">
@@ -65,7 +69,7 @@ const MyClasses = () => {
         </main>
       </div>
       <div>
-        <h1 className="text-center my-10">My Enrolled classes</h1>
+        <h1 className="text-center text-3xl font-bold my-10">My Enrolled classes</h1>
         <main className="flex-grow p-4 bg-gray-100">
           <div className="overflow-x-auto">
             <table className="table table-zebra">

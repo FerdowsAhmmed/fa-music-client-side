@@ -33,7 +33,7 @@ const InstructorDashboard = () => {
             <div className="flex items-center justify-center h-20">
               <h1>Instructor Dashboard</h1>
             </div>
-            <nav>
+            <nav className="bg-orange-800 py-10">
               <ul className="pl-10 pr-10">
                <Link to="/AddAClass"> <li>Add a Class</li></Link>
                <Link to="/MyAddedClass"> <li>My Classes</li></Link>

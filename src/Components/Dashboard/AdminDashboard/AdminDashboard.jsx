@@ -28,11 +28,11 @@ const AdminDashboard = () => {
   return (
     <div className="flex h-screen overflow-hidden">
       {isSidebarOpen && (
-        <div className="bg-gray-500 text-white w-64">
+        <div className="bg-indigo-800 text-white w-64">
           <div className="flex items-center justify-center h-20">
             <h1>Admin Dashboard</h1>
           </div>
-          <nav>
+          <nav className="bg-orange-500 py-10">
             <ul className="pl-10 pr-10">
               <li>Manage Classes</li>
               <li>Manage Users</li>
